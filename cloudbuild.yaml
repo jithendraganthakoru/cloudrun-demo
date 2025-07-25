@@ -1,7 +1,6 @@
 steps:
-  - name: maven:3.9.0-eclipse-temurin-17
-    entrypoint: 'mvn'
-    args: ['clean', 'install', '-DskipTests']
+	- name: 'gcr.io/cloud-builders/mvn'
+	   args: ['clean', 'package']
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/springbootappwithcloudrun', '.']
